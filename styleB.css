@@ -23,8 +23,8 @@ html, body {
 
 .box:hover {
     cursor: pointer;
-    background-color: yellow;
-    color: goldenrod;
+    background-color: rgb(46, 126, 90);
+    color: rgb(52, 176, 77);
 }
 
 .box:last-child {
