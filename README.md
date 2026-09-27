@@ -12,23 +12,8 @@ web-programming-lab2/
 └── README.md    # This file
 ```
 
-- **index.html** holds only the content. Every box has the shared `box` class and its own id (`box1` … `box6`), so both stylesheets can style the boxes without changing the HTML.
-- **styleA.css** uses Flexbox (`flex-direction: column`, `justify-content: space-evenly`) to spread the boxes vertically across the full viewport height (`100vh`). Odd and even boxes get alternating background colors through `:nth-child(odd/even)`. The last box has a darker background and a thick black border, and its letter is centered inside it with a nested flex container.
-- **styleB.css** puts the boxes on one line using `display: inline-block` and `white-space: nowrap`. Each box has a dotted left border and changes color on hover. The last box is taken out of the normal flow with `position: fixed` and pinned to the bottom-right corner of the window.
-
-### How to switch layouts
-
-`index.html` links to `styleA.css` by default. To see Layout B, change the stylesheet link in the `<head>`:
-
-```html
-<link rel="stylesheet" href="styleB.css">
-```
-
 ## Challenges I Faced
 
-- **Making the boxes fill the full page height:** `height: 100vh` on the container had no visible effect until I set `margin: 0` and `padding: 0` on `html` and `body`. Without that, the default body margin caused a scrollbar.
-- **Box sizing with borders and padding:** Borders and padding made the boxes larger than 100px. Adding `box-sizing: border-box` kept every box at exactly the width and height I set.
-- **Styling one box differently without changing the HTML:** I used the `:nth-child()` and `:last-child` pseudo-classes, so the special styles come from CSS alone.
 - **Centering the text in the last box:** `text-align: center` only centers text horizontally. To center it vertically as well, I turned that box into a flex container with `align-items: center` and `justify-content: center`.
 - **Keeping the boxes on one line in Layout B:** Inline-block elements wrapped to a new line on narrow screens, so I added `white-space: nowrap` to the container.
 - **The fixed-position box:** After I set `position: fixed` on the last box, it no longer followed the other boxes in the row and could cover content. I also had to remove its right margin so it sat exactly in the corner.
